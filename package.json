@@ -1,0 +1,19 @@
+{
+  "name": "nocamel",
+  "version": "0.0.1",
+  "description": "Don't want camelCase in your JS & Node? Good, me neither.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebrian/nocamel.git"
+  },
+  "author": "Brian Seymour",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ebrian/nocamel/issues"
+  },
+  "homepage": "https://github.com/ebrian/nocamel#readme"
+}
