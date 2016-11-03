@@ -23,7 +23,6 @@ require('nocamel'); // <- semi-colon: very important
 // object method aliases
 Array.is_array([]); // true
 
-
 // function aliases!
 is_nan(NaN); // true
 ```
