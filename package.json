@@ -1,6 +1,6 @@
 {
   "name": "nocamel",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Don't want camelCase in your JS & Node? Good, me neither.",
   "main": "index.js",
   "scripts": {

@@ -10,15 +10,20 @@ npm install nocamel
 
 ### Include
 ```js
-require('nocamel')
+require('nocamel'); // <- semi-colon: very important
 ```
 
 ### Use
 ```js
-// works!
+// prototype alises
 [1,2,3].for_each(num => {
-    console.log(num)
-})
+    console.log(num);
+});
 
-is_nan(NaN) // true
+// object method aliases
+Array.is_array([]); // true
+
+
+// function aliases!
+is_nan(NaN); // true
 ```

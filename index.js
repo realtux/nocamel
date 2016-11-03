@@ -1,5 +1,10 @@
-var define = (native, name, value) => {
-    Object.defineProperty(native, name, {value, writable: false, configurable: false, enumerable: false});
+var define = function(native, name, value) {
+    Object.defineProperty(native, name, {
+        value: value,
+        writable: false,
+        configurable: false,
+        enumerable: false
+    });
 };
 
 decode_uri = decodeURI;
@@ -80,3 +85,47 @@ define(String.prototype, 'to_lower_case', String.prototype.toLowerCase);
 define(String.prototype, 'to_upper_case', String.prototype.toUpperCase);
 define(String.prototype, 'to_string', String.prototype.toString);
 define(String.prototype, 'starts_with', String.prototype.startsWith);
+
+var fs = require('fs');
+define(fs, 'access_sync', fs.accessSync);
+define(fs, 'append_file', fs.appendFile);
+define(fs, 'append_file_sync', fs.appendFileSync);
+define(fs, 'chmod_sync', fs.chmodSync);
+define(fs, 'chown_sync', fs.chownSync);
+define(fs, 'close_sync', fs.closeSync);
+define(fs, 'create_read_stream', fs.createReadStream);
+define(fs, 'create_write_stream', fs.createWriteStream);
+define(fs, 'exists_sync', fs.existsSync);
+define(fs, 'fchmod_sync', fs.fchmodSync);
+define(fs, 'fchown_sync', fs.fchownSync);
+define(fs, 'fdatasync_sync', fs.fdatasyncSync);
+define(fs, 'fstat_sync', fs.fstatSync);
+define(fs, 'fsync_sync', fs.fsyncSync);
+define(fs, 'ftruncate_sync', fs.ftruncateSync);
+define(fs, 'futimes_sync', fs.futimesSync);
+define(fs, 'lchmod_sync', fs.lchmodSync);
+define(fs, 'lchown_sync', fs.lchownSync);
+define(fs, 'link_sync', fs.linkSync);
+define(fs, 'lstat_sync', fs.lstatSync);
+define(fs, 'mkdir_sync', fs.mkdirSync);
+define(fs, 'mkdtemp_sync', fs.mkdtempSync);
+define(fs, 'open_sync', fs.openSync);
+define(fs, 'readdir_sync', fs.readdirSync);
+define(fs, 'read_file', fs.readFile);
+define(fs, 'read_file_sync', fs.readFileSync);
+define(fs, 'readlink_sync', fs.readlinkSync);
+define(fs, 'read_sync', fs.readSync);
+define(fs, 'realpath_sync', fs.realpathSync);
+define(fs, 'rename_sync', fs.renameSync);
+define(fs, 'rmdir_sync', fs.rmdirSync);
+define(fs, 'stat_sync', fs.statSync);
+define(fs, 'symlink_sync', fs.symlinkSync);
+define(fs, 'truncate_sync', fs.truncateSync);
+define(fs, 'unlink_sync', fs.unlinkSync);
+define(fs, 'unwatch_file', fs.unwatchFile);
+define(fs, 'utimes_sync', fs.utimesSync);
+define(fs, 'watch_file', fs.watchFile);
+define(fs, 'write_file', fs.writeFile);
+define(fs, 'write_file_sync', fs.writeFileSync);
+define(fs, 'write_sync', fs.writeSync);
+define(fs, 'write_sync', fs.writeSync);
