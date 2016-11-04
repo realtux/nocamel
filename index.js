@@ -160,6 +160,13 @@ define(Buffer.prototype, 'write_uint32_le', Buffer.prototype.writeUInt32LE);
 define(Buffer.prototype, 'write_uint_be', Buffer.prototype.writeUIntBE);
 define(Buffer.prototype, 'write_uint_le', Buffer.prototype.writeUIntLE);
 
+var child_process = require('child_process');
+// module fns
+define(child_process, 'exec_file', child_process.execFile);
+define(child_process, 'spawn_sync', child_process.spawnSync);
+
+define(console, 'time_end', console.timeEnd);
+
 var fs = require('fs');
 // module fns
 define(fs, 'access_sync', fs.accessSync);
