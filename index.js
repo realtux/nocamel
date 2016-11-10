@@ -95,6 +95,14 @@ define(String.prototype, 'to_upper_case', String.prototype.toUpperCase);
 define(String.prototype, 'to_string', String.prototype.toString);
 define(String.prototype, 'starts_with', String.prototype.startsWith);
 
+// global node fns
+set_timeout = setTimeout;
+set_immediate = setImmediate;
+set_interval = setInterval;
+clear_timeout = clearTimeout;
+clear_immediate = clearImmediate;
+clear_interval = clearInterval;
+
 var assert = require('assert');
 // module fns
 define(assert, 'deep_equal', assert.deepEqual);
@@ -163,7 +171,14 @@ define(Buffer.prototype, 'write_uint_le', Buffer.prototype.writeUIntLE);
 var child_process = require('child_process');
 // module fns
 define(child_process, 'exec_file', child_process.execFile);
+define(child_process, 'exec_file_sync', child_process.execFileSync);
 define(child_process, 'spawn_sync', child_process.spawnSync);
+
+var cluster = require('cluster');
+define(cluster, 'is_master', null, function() { return this.isMaster; });
+define(cluster, 'is_worker', null, function() { return this.isWorker; });
+define(cluster, 'scheduling_policy', null, function() { return this.schedulingPolicy; });
+define(cluster, 'setup_master', cluster.setupMaster);
 
 define(console, 'time_end', console.timeEnd);
 
@@ -210,4 +225,17 @@ define(fs, 'watch_file', fs.watchFile);
 define(fs, 'write_file', fs.writeFile);
 define(fs, 'write_file_sync', fs.writeFileSync);
 define(fs, 'write_sync', fs.writeSync);
-define(fs, 'write_sync', fs.writeSync);
+
+var os = require('os');
+define(os, 'network_interfaces', fs.networkInterfaces);
+define(os, 'user_info', fs.userInfo);
+
+var path = require('path');
+define(path, 'is_absolute', fs.isAbsolute);
+
+define(process, 'cpu_usage', null, function() { return this.cpuUsage; });
+define(process, 'exec_argv', null, function() { return this.execArgv; });
+define(process, 'exec_path', null, function() { return this.execPath; });
+define(process, 'exit_code', null, function() { return this.exitCode; });
+define(process, 'main_module', null, function() { return this.mainModule; });
+define(process, 'next_tick', process.nextTick);

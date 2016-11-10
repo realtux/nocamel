@@ -15,14 +15,20 @@ require('nocamel');
 
 ### Use
 ```js
-// prototype alises
+// built-in prototype aliases!
 [1,2,3].for_each(num => {
     console.log(num);
 });
 
-// object method aliases
+// built-in object method aliases!
 Array.is_array([]); // true
 
-// function aliases!
+// built-in global function aliases!
 is_nan(NaN); // true
+
+// node module aliases!
+const fs = require('fs');
+fs.read_file('a.txt', (err, data) => {
+    console.log(data.to_string());
+});
 ```
