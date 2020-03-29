@@ -1,19 +1,19 @@
 {
-  "name": "nocamel",
-  "version": "0.0.6",
-  "description": "Don't want camelCase in your Javascript & Node.js? Good, me neither.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ebrian/nocamel.git"
-  },
-  "author": "Brian Seymour",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ebrian/nocamel/issues"
-  },
-  "homepage": "https://github.com/ebrian/nocamel#readme"
+    "name": "nocamel",
+    "version": "1.0.0",
+    "description": "Don't want camelCase in your Javascript & Node.js? Good, me neither.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/realtux/nocamel.git"
+    },
+    "author": "Brian Seymour",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/realtux/nocamel/issues"
+    },
+    "homepage": "https://github.com/realtux/nocamel#readme"
 }
