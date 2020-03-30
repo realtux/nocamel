@@ -4,11 +4,7 @@ const define = (native, name, originalName) => {
         enumerable: false,
     };
 
-    if (typeof native[originalName] === 'function') {
-        properties.value = native[originalName];
-    } else {
-        properties.get = () => native[originalName];
-    }
+    properties.value = native[originalName];
 
     Object.defineProperty(native, name, properties);
 };
@@ -27,44 +23,61 @@ const load = (object) => {
     }
 };
 
+// global fns
+decode_uri = decodeURI;
+decode_uri_component = decodeURIComponent;
+encode_uri = encodeURI;
+encode_uri_component = encodeURIComponent;
+parse_int = parseInt;
+parse_float = parseFloat;
+is_finite = isFinite;
+is_nan = isNaN;
+set_timeout = setTimeout;
+set_immediate = setImmediate;
+set_interval = setInterval;
+clear_timeout = clearTimeout;
+clear_immediate = clearImmediate;
+clear_interval = clearInterval;
+
 const builtin = [
-    'Object',
-    'Function',
-    'Array',
-    'Number',
-    'Boolean',
-    'String',
-    'Symbol',
-    'Date',
-    'Promise',
-    'RegExp',
-    'Error',
-    'EvalError',
-    'RangeError',
-    'ReferenceError',
-    'SyntaxError',
-    'TypeError',
-    'URIError',
-    'JSON',
-    'Math',
-    'Intl',
-    'ArrayBuffer',
-    'Uint8Array',
-    'Int8Array',
-    'Uint16Array',
-    'Int16Array',
-    'Uint32Array',
-    'Int32Array',
-    'Float32Array',
-    'Float64Array',
-    'Uint8ClampedArray',
-    'DataView',
-    'Map',
-    'Set',
-    'WeakMap',
-    'WeakSet',
-    'Proxy',
-    'Reflect',
+    Function,
+    Array,
+    Number,
+    Boolean,
+    String,
+    Symbol,
+    Date,
+    Promise,
+    RegExp,
+    Error,
+    EvalError,
+    RangeError,
+    ReferenceError,
+    SyntaxError,
+    TypeError,
+    URIError,
+    JSON,
+    Math,
+    Intl,
+    ArrayBuffer,
+    Uint8Array,
+    Int8Array,
+    Uint16Array,
+    Int16Array,
+    Uint32Array,
+    Int32Array,
+    Float32Array,
+    Float64Array,
+    Uint8ClampedArray,
+    DataView,
+    Map,
+    Set,
+    WeakMap,
+    WeakSet,
+    Proxy,
+    Reflect,
+    Buffer,
+    Object
 ];
 
 const modules = [
@@ -100,16 +113,14 @@ const modules = [
     'zlib'
 ];
 
-load(global);
-
-for (const obj of builtin) {
-    load(global[obj]);
-    load(global[obj].prototype);
-}
-
 for (const mod of modules) {
     req = require(mod);
 
     load(req);
-    load(req['prototype']);
+    load(req.prototype);
+}
+
+for (const obj of builtin) {
+    load(obj);
+    load(obj.prototype);
 }
