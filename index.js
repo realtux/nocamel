@@ -12,10 +12,19 @@ const define = (native, name, originalName) => {
 const load = (object) => {
     try {
         for (const property of Object.getOwnPropertyNames(object)) {
-            if (property.toUpperCase() === property) continue;
-            const snakeCased = property.replace(/[A-Z]+/g, (c, i) => i === 0 ? c + '_' : '_' + c).toLowerCase();
-            if (snakeCased in object) continue;
-            define(object, snakeCased, property);
+            if (property.toUpperCase() === property) {
+                continue;
+            }
+
+            const snake = property
+                .replace(/[A-Z]+/g, (c, i) => i === 0 ? c + '_' : '_' + c)
+                .toLowerCase();
+
+            if (snake in object) {
+                continue;
+            }
+
+            define(object, snake, property);
         }
     } catch(e) {
         // these errors are mostly objects that don't have a prototype
@@ -114,7 +123,7 @@ const modules = [
 ];
 
 for (const mod of modules) {
-    req = require(mod);
+    let req = require(mod);
 
     load(req);
     load(req.prototype);
