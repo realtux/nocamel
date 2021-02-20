@@ -135,7 +135,7 @@ for (const obj of builtin) {
     load(obj.prototype);
 }
 
-module.exports = function(obj){
+module.exports = obj => {
     load(obj);
     load(obj.prototype);
     return module.exports;
