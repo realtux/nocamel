@@ -135,8 +135,7 @@ for (const obj of builtin) {
     load(obj.prototype);
 }
 
-module.exports = obj => {
+module.exports.nocamelify = obj => {
     load(obj);
     load(obj.prototype);
-    return module.exports;
 }
