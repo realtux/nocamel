@@ -101,6 +101,7 @@ const modules = [
     'domain',
     'events',
     'fs',
+    'fs/promises',
     'http',
     'https',
     'net',
@@ -132,4 +133,10 @@ for (const mod of modules) {
 for (const obj of builtin) {
     load(obj);
     load(obj.prototype);
+}
+
+module.exports = function(obj){
+    load(obj);
+    load(obj.prototype);
+    return module.exports;
 }
